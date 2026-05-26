@@ -426,9 +426,12 @@ Write the report in this exact structure (use these headers verbatim):
 ## What This Does NOT Require
 [1-2 sentences: clarify scope — e.g. "This platform does not require a full rebuild"]`;
 
-  const response = await fetch("/api/report", {
+  const response = await fetch("https://gateway.ai.vercel.dev/v1/messages", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { 
+      "Content-Type": "application/json",
+      "anthropic-version": "2023-06-01",
+    },
     body: JSON.stringify({
       model: "claude-sonnet-4-20250514",
       max_tokens: 1000,
